@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node imgx.js"
+    "start": "nodemon imgx.js"
   },
   "author": "",
   "license": "ISC",

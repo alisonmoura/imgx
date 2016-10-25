@@ -4,6 +4,7 @@
 * Nodejs
 * NPM
 * Lite Server
+* Nodemon
 
 ## Setup
 API: `$ cd api/ && npm install`
