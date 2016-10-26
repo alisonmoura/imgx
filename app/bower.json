@@ -1,0 +1,17 @@
+{
+  "name": "imgx",
+  "description": "",
+  "main": "js/app.js",
+  "authors": [
+    "Alison Moura <alison.oghino@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/alisonmoura/imgx",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
