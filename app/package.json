@@ -2,7 +2,7 @@
   "name": "imgx-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "js/app.js",
   "scripts": {
     "start": "lite-server"
   },
