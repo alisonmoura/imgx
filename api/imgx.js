@@ -1,6 +1,8 @@
 var express = require('express');
 var mysql = require('mysql');
+const bodyParser = require('body-parser');
 var userRouter = require('./routes/UserRouter');
+var loginRouter = require('./routes/LoginRouter');
 
 var app = express();
 var port = 3000;
@@ -16,7 +18,18 @@ var pool = mysql.createPool({
 
 app.locals.poolConnection = pool;
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, DELETE, POST");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
 userRouter(app);
+loginRouter(app);
 
 pool.getConnection(function (err, connection) {
   if (!err) {
