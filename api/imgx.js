@@ -26,7 +26,12 @@ connection.connect(function (err) {
 
 
 app.get("/", function (req, resp) {
-  resp.send("Hello");
+  var query = "SELECT * FROM user"
+  connection.query(query, function (err, rows, fields) {
+    if (!err) {
+      resp.json(rows);
+    } else console.log(JSON.stringify(err));
+  })
 })
 
 app.listen(port, function () {
