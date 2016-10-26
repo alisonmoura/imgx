@@ -1,5 +1,7 @@
 var express = require('express');
 var mysql = require('mysql');
+var userRouter = require('./routes/UserRouter');
+
 var app = express();
 var port = 3000;
 
@@ -11,6 +13,10 @@ var pool = mysql.createPool({
   database: 'imgx',
   debug: false
 });
+
+app.locals.poolConnection = pool;
+
+userRouter(app);
 
 pool.getConnection(function (err, connection) {
   if (!err) {
@@ -24,19 +30,6 @@ pool.getConnection(function (err, connection) {
   } else {
     console.log("Error connecting database ..." + JSON.stringify(err));
   }
-});
-
-app.get("/", function (req, resp) {
-  var query = "SELECT * FROM user"
-  pool.getConnection(function (err, connection) {
-    if (!err) {
-      connection.query(query, function (err, rows, fields) {
-        if (!err) {
-          resp.json(rows);
-        } else console.log(JSON.stringify(err));
-      })
-    }
-  })
 });
 
 app.listen(port, function () {
