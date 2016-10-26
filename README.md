@@ -1,4 +1,5 @@
 # IMGX
+It is a simple web project to manage your gallery of photos.
 
 ## Prerequisites
 * Nodejs
@@ -10,3 +11,8 @@
 API: `$ cd api/ && npm install`
 
 APP: `$ cd app/ && npm install`
+
+## Run
+API: `$ cd api/ && npm start`
+
+API: `$ cd app/ && npm start`
