@@ -3,14 +3,16 @@ var mysql = require('mysql');
 var app = express();
 var port = 3000;
 
-var connection = mysql.createConnection({
+var pool = mysql.createPool({
+  connectionLimit: 100, //important
   host: 'localhost',
   user: 'root',
   password: 'alison',
-  database: 'imgx'
+  database: 'imgx',
+  debug: false
 });
 
-connection.connect(function (err) {
+pool.getConnection(function (err, connection) {
   if (!err) {
     console.log("Database is connected ...");
     var query = "CREATE TABLE IF NOT EXISTS user (id int NOT NULL, name varchar(100) NOT NULL, email varchar(100) NOT NULL, password varchar(100) NOT NULL, PRIMARY KEY(id))";
@@ -24,15 +26,18 @@ connection.connect(function (err) {
   }
 });
 
-
 app.get("/", function (req, resp) {
   var query = "SELECT * FROM user"
-  connection.query(query, function (err, rows, fields) {
+  pool.getConnection(function (err, connection) {
     if (!err) {
-      resp.json(rows);
-    } else console.log(JSON.stringify(err));
+      connection.query(query, function (err, rows, fields) {
+        if (!err) {
+          resp.json(rows);
+        } else console.log(JSON.stringify(err));
+      })
+    }
   })
-})
+});
 
 app.listen(port, function () {
   console.log(`IMGX listening on port ${port}`);
