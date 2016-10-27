@@ -7,7 +7,7 @@
 }
 
 .card-register-login{
-  transition: all 1s ease-in-out;
+  transition: width 1s ease-in;
 }
 
 @keyframes gallery-out {
@@ -27,18 +27,26 @@
 }
 
 .card-login.ng-hide-add{
-  animation: 1s card-login-out;
+  animation: .5s card-login-out;
+}
+
+.card-login.ng-hide-remove{
+  animation: .5s card-login-in;
 }
 
 .card-register.ng-hide-remove{
-  animation: 1s card-register-in;
+  animation: .5s card-register-in;
 }
 
+.card-register.ng-hide-add{
+  animation: .5s card-register-out;
+}
 
 @keyframes card-login-out {
   0% { 
-    position: relative;
-    opacity:1; 
+    position: absolute;
+    opacity:0; 
+    right: 0px;
   }
   50% {
     opacity: 0;
@@ -47,8 +55,30 @@
     opacity:0;
   }
   100% {
+    right: 200px;
     position: absolute;
     opacity:0;
+  }
+}
+
+@keyframes card-login-in {
+  0% { 
+    position: relative;
+    right: 200px;
+    opacity:0; 
+  }
+  50%{
+    opacity: 0;
+  }
+  80%{
+    opacity:.9;
+    position: relative;
+    right: 0px;
+  }
+  100% {
+    position: relative;
+    right: 0px;
+    opacity:1;
   }
 }
 
@@ -57,7 +87,7 @@
     top: 15px;
     opacity:0;
     right: -200px;
-    position: absolute;
+    position: relative;
   }
   50%{
     opacity: 0;
@@ -73,6 +103,33 @@
     position: relative;
   }
 }
+
+@keyframes card-register-out {
+  0% { 
+    top: 0px;
+    opacity:0;
+    right: 0px;
+    position: absolute;
+  }
+  25%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+    right:-100px;
+    position: absolute;
+  }
+  100% {
+    top: 15px;
+    opacity:0;
+    right:-200px;
+    position: absolute;
+  }
+}
+
 
 .btn-login{
   width: 100%;
@@ -116,25 +173,22 @@
 
 @keyframes btn-opacity-out{
   0%{
-    opacity: 1;
-    position: relative;
-  }
-  75%{
+    opacity: .01;
     position: absolute;
+    bottom: 0px;
+    right: 15px;
+  }
+  50%{
     opacity: 0;
   }
   100%{
-    position: absolute;
     opacity: 0;
+    position: absolute;
   }
 }
 
 @keyframes btn-opacity-in{
   0%{
-    opacity: 0;
-    position: absolute;
-  }
-  75%{
     opacity: 0;
     position: relative;
   }
