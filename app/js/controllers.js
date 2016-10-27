@@ -35,3 +35,10 @@ angular.module('ImgxApp.controllers',[])
 		})
 	}
 })
+.controller('LogoutController', function($rootScope){
+	function logout(){
+		localStorage.setItem("logedUser","");
+		window.location.href="/login.html"
+	}
+	logout();
+});

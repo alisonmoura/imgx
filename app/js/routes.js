@@ -6,6 +6,10 @@ angular.module('ImgxApp.routes',['ngRoute'])
 				templateUrl:'./../templates/gallery.html',
 				controller: 'GalleryController'
 			})
+			.when('/logout',{
+				template: '<h2>Logout...</h2>',
+				controller: 'LogoutController'
+			})
 			.otherwise({
 				redirectTo: '/gallery'
 			});
