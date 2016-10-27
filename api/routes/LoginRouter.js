@@ -6,12 +6,13 @@ module.exports = function (app) {
 
     app.route("/login")
         .post(function (req, res) {
-        	console.log("chamou o login com post");
-        	console.log(req.body);
-            // dao.findAll(function (err, result) {
-            //     if (!err) {
-            //         res.json(result);
-            //     } else res.sendStatus(501);
-            // });
+            dao.findByEmailAndPassword(req.body.email, req.body.password, (err, result) => {
+                if (!err) {
+                    res.json(result);
+                } else {
+                	console.log(err);
+                	res.sendStatus(501);
+                }
+            });
         });
 }
