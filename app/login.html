@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='ImgxApp'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" width="device-width=1; user-scalable=no">
+	<base href="/">
+	<title>IMGX - Store your images here!</title>
+	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/material.min.js"></script>
+	<script type="text/javascript" src="./js/material-dashboard.js"></script>
+	<script type="text/javascript" src="./js/chartist.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap-notify.js"></script>
+	<script type="text/javascript" src="./js/demo.js"></script>
+	<script type="text/javascript" src="./js/app.js"></script>
+	<script type="text/javascript" src="./js/routes.js"></script>
+	<script type="text/javascript" src="./js/controllers.js"></script>
+	<script type="text/javascript" src="./js/services.js"></script>
+
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/material-dashboard.css">
+	<link rel="stylesheet" type="text/css" href="./css/demo.css">
+</head>
+<body ng-controller="LoginController" style="background-color: purple">
+	<div class="wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+					<h1 class="text-center" style="color: white;margin-top: 25%;">IMGX</h1>
+					<div class="card">
+						<div class="card-content">
+							<h4 class="title text-center">LOGIN</h4>
+							<div class="form-group label-floating">
+								<label class="control-label">Email</label>
+								<input ng-model="email" type="email" class="form-control">
+							</div>
+							<div class="form-group label-floating">
+								<label class="control-label">Password</label>
+								<input ng-model="password" type="password" class="form-control">
+							</div>
+						</div>
+						<div class="card-footer" align="center">
+							<button class="btn btn-primary" ng-click="login(email, password)">Login</button>
+							<button class="btn btn-success">Register</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer class="footer" style="position: absolute; bottom: 0px; right: 5px;">
+				<div class="container-fluid">
+					<p class="copyright pull-right" style="color: white;">
+						<script>document.write(new Date().getFullYear())</script> <span style="font-weight: bolder;">IMGX</span>, store your moment with us.
+					</p>
+				</div>
+			</footer>
+		</div>
+	</body>
+	</html>
