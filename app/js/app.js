@@ -1,8 +1,8 @@
-angular.module('ImgxApp', ['ImgxApp.routes','ImgxApp.services','ImgxApp.controllers'])
+angular.module('ImgxApp', ['ngAnimate','ImgxApp.routes','ImgxApp.services','ImgxApp.controllers'])
 .run(function($rootScope, $location){
 
 	let logedUser = localStorage.getItem("logedUser");
-	
+
 	if(logedUser != '')
 		$rootScope.logedUser = JSON.parse(logedUser);
 
