@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="./bower_components/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-animate/angular-animate.min.js"></script>
 	<script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./js/material.min.js"></script>
 	<script type="text/javascript" src="./js/material-dashboard.js"></script>
@@ -24,6 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/material-dashboard.css">
 	<link rel="stylesheet" type="text/css" href="./css/demo.css">
+	<link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
 <body ng-controller="LoginController" style="background-color: purple">
 	<div class="wrapper">
@@ -31,21 +33,40 @@
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 					<h1 class="text-center" style="color: white;margin-top: 25%;">IMGX</h1>
-					<div class="card">
+					<div class="card card-register-login">
 						<div class="card-content">
-							<h4 class="title text-center">LOGIN</h4>
-							<div class="form-group label-floating">
-								<label class="control-label">Email</label>
-								<input ng-model="email" type="email" class="form-control">
+							<div ng-show="!isToRegister" class="card-login">
+								<h4 class="title text-center">LOGIN</h4>
+								<div class="form-group label-floating">
+									<label class="control-label">Email</label>
+									<input ng-model="email" type="email" class="form-control">
+								</div>
+								<div class="form-group label-floating">
+									<label class="control-label">Password</label>
+									<input ng-model="password" type="password" class="form-control">
+								</div>
 							</div>
-							<div class="form-group label-floating">
-								<label class="control-label">Password</label>
-								<input ng-model="password" type="password" class="form-control">
+							<div ng-show="isToRegister" class="card-register">
+								<h4 class="title text-center">Register</h4>
+								<div class="form-group label-floating">
+									<label class="control-label">Name</label>
+									<input ng-model="name" type="text" class="form-control">
+								</div>
+								<div class="form-group label-floating">
+									<label class="control-label">Email</label>
+									<input ng-model="email" type="email" class="form-control">
+								</div>
+								<div class="form-group label-floating">
+									<label class="control-label">Password</label>
+									<input ng-model="password" type="password" class="form-control">
+								</div>
 							</div>
 						</div>
 						<div class="card-footer" align="center">
-							<button class="btn btn-primary" ng-click="login(email, password)">Login</button>
-							<button class="btn btn-success">Register</button>
+							<button ng-show="!isToRegister" class="btn btn-login btn-primary" ng-click="login(email, password)">Login</button>
+							<button ng-show="!isToRegister" class="btn btn-register btn-success" ng-click="isToRegister=true">Register</button>
+							<button ng-show="isToRegister" class="btn btn-register btn-success" ng-click="">Register</button>
+							<button ng-show="isToRegister" class="btn btn-register-cancel btn-danger" ng-click="isToRegister=false">Cancel</button>
 						</div>
 					</div>
 				</div>

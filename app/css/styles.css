@@ -6,6 +6,10 @@
   animation: 0.5s gallery-out;
 }
 
+.card-register-login{
+  transition: all 1s ease-in-out;
+}
+
 @keyframes gallery-out {
   from { opacity:1; }
   to { opacity:0; }
@@ -20,4 +24,124 @@
    opacity:1; 
    top: 0px;
  }
+}
+
+.card-login.ng-hide-add{
+  animation: 1s card-login-out;
+}
+
+.card-register.ng-hide-remove{
+  animation: 1s card-register-in;
+}
+
+
+@keyframes card-login-out {
+  0% { 
+    position: relative;
+    opacity:1; 
+  }
+  50% {
+    opacity: 0;
+  }
+  80%{
+    opacity:0;
+  }
+  100% {
+    position: absolute;
+    opacity:0;
+  }
+}
+
+@keyframes card-register-in {
+  0% { 
+    top: 15px;
+    opacity:0;
+    right: -200px;
+    position: absolute;
+  }
+  50%{
+    opacity: 0;
+  }
+  80% {
+    opacity: .9;
+    right:0px;
+  }
+  100% {
+    top: 0px;
+    opacity:1;
+    right:0px;
+    position: relative;
+  }
+}
+
+.btn-login{
+  width: 100%;
+}
+
+.btn-register{
+  width: 100%;
+}
+
+.btn-register-register{
+  width: 100%;
+}
+
+.btn-register-cancel{
+  width: 100%;
+}
+
+.btn-register-cancel.ng-hide-add{
+  animation: 1s btn-opacity-out;
+}
+
+.btn-register-cancel.ng-hide-remove{
+  animation: 1s btn-opacity-in;
+}
+
+.btn-login.ng-hide-add{
+  animation: 1s btn-opacity-out;
+}
+
+.btn-login.ng-hide-remove{
+  animation: 1s btn-opacity-in;
+}
+
+.btn-register.ng-hide-add{
+  animation: 1s btn-opacity-out;
+}
+
+.btn-register.ng-hide-remove{
+  animation: 1s btn-opacity-in;
+}
+
+@keyframes btn-opacity-out{
+  0%{
+    opacity: 1;
+    position: relative;
+  }
+  75%{
+    position: absolute;
+    opacity: 0;
+  }
+  100%{
+    position: absolute;
+    opacity: 0;
+  }
+}
+
+@keyframes btn-opacity-in{
+  0%{
+    opacity: 0;
+    position: absolute;
+  }
+  75%{
+    opacity: 0;
+    position: relative;
+  }
+  100%{
+    opacity: 1;
+    position: relative;
+  }
+}
+
 }

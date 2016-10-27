@@ -24,6 +24,7 @@ angular.module('ImgxApp.controllers',[])
 
 })
 .controller('LoginController', function($scope, $rootScope, LoginService){
+	$scope.isToRegister = false;
 	$scope.login = function(email, password){
 		LoginService.login(email, password, (err, result) => {
 			if(!err){
