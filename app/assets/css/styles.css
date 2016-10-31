@@ -198,4 +198,9 @@
   }
 }
 
+.new-gallery-dialog{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    background-color: rgba(0,0,0,.3);
 }
