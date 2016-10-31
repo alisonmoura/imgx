@@ -23,7 +23,7 @@ angular.module('ImgxApp.controllers',[])
 	}
 
 })
-.controller('LoginController', function($scope, $rootScope, LoginService){
+.controller('LoginController', function($scope, $rootScope, LoginService, UserService){
 	$scope.isToRegister = false;
 	$scope.login = function(email, password){
 		LoginService.login(email, password, (err, result) => {
@@ -33,6 +33,21 @@ angular.module('ImgxApp.controllers',[])
 				localStorage.setItem("logedUser",JSON.stringify(result));
 			}
 			else alert(err);
+		});
+	}
+	$scope.register = function(name, email, password){
+		UserService.insert(name, email, password, (err, result) => {
+			if(!err){
+				LoginService.login(email, password, (err, result) => {
+					if(!err){
+						$rootScope.logedUser = result;
+						location.href = "/gallery";
+						localStorage.setItem("logedUser",JSON.stringify(result));
+					}
+					else alert(JSON.stringify(err));
+				});
+			}
+			else alert(JSON.stringify(err));
 		})
 	}
 })

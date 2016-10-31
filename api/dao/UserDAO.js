@@ -1,54 +1,54 @@
 module.exports = function (pool) {
 
-    this.findAll = (callback) => {
+    this.findAll = (error, callback) => {
         pool.getConnection((err, connection) => {
             if (!err) {
                 connection.query("SELECT * FROM user", (err, rows, fields) => {
                     connection.release();
                     if (!err) {
-                        callback(null, rows);
-                    } else callback(err, null);
+                        callback(rows);
+                    } else error(err);
                 })
-            } else callback(err, null);
+            } else error(err);
         });
     }
 
-    this.findByEmailAndPassword = (email, password, callback) => {
+    this.findByEmailAndPassword = (error, email, password, callback) => {
         pool.getConnection((err, connection) => {
             if (!err) {
                 connection.query("SELECT * FROM user WHERE email=? AND password=? LIMIT 1", [email, password], (err, rows, fields) => {
                     connection.release();
                     if (!err) {
-                        callback(null, rows[0]);
-                    } else callback(err, null);
+                        callback(rows[0]);
+                    } else error(err);
                 })
-            } else callback(err, null);
+            } else error(err);
         });
     }
 
-    this.insert = (user, callback) => {
+    this.insert = (error, user, callback) => {
         pool.getConnection((err, connection) => {
             if (!err) {
-                connection.query("INSERT INTO user (name, email, password) VALUES(?,?,?)", [user.name, user.email, user.password], (err, rows, fields) => {
+                connection.query("INSERT INTO user (name, email, password) VALUES ?,?,?", [user.name, user.email, user.password], (err, rows, fields) => {
                     connection.release();
                     if (!err) {
-                        callback(null, rows[0]);
-                    } else callback(err, null);
+                        callback(rows[0]);
+                    } else error(err);
                 })
-            } else callback(err, null);
+            } else error(err);
         });
     }
 
-    this.update = (user, callback) => {
+    this.update = (error, user, callback) => {
         pool.getConnection((err, connection) => {
             if (!err) {
                 connection.query("UPDATE user SET name=?, email=?, password=? WHERE id=?", [user.name, user.email, user.password, user.id], (err, rows, fields) => {
                     connection.release();
                     if (!err) {
-                        callback(null, rows[0]);
-                    } else callback(err, null);
+                        callback(rows[0]);
+                    } else error(err);
                 })
-            } else callback(err, null);
+            } else error(err);
         });
     }
 

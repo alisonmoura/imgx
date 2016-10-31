@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" width="device-width=1; user-scalable=no">
 	<base href="/">
-	<title>IMGX - Store your images here!</title>
+	<title>IMGX - Store your moments with us!</title>
 	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="./bower_components/angular-route/angular-route.min.js"></script>
@@ -41,13 +41,16 @@
 		    	<a href="#" class="simple-text">
 		    		IMGX
 		    	</a>
+		    	<span class="text-center">
+		    		{{logedUser.name}}
+		    	</span>
 		    </div>
 
 		    <div class="sidebar-wrapper">
 		    	<ul class="nav">
 		    		<li class="active">
 		    			<a href="gallery">
-		    				<i class="material-icons">image</i>
+		    				<i class="material-icons">photo_library</i>
 		    				<p>Gallery</p>
 		    			</a>
 		    		</li>

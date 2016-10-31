@@ -1,29 +1,27 @@
-var UserDAO = require('./../dao/UserDAO');
+const UserDAO = require('./../dao/UserDAO');
 
 module.exports = function (app) {
 
 	const dao = UserDAO(app.locals.poolConnection);
+	const onError = app.locals.sendError;
 
 	app.route("/users")
-		.get((req, res) => {
-			dao.findAll((err, result) => {
-				if (!err) {
-					res.json(result);
-				} else res.sendStatus(501);
-			});
-		})
-		.post((req, res) => {
-			dao.insert(req.body, (err, result) => {
-				if (!err) {
-					res.json(result);
-				} else res.sendStatus(501);
-			})
-		})
-		.put((req, res) => {
-			dao.update(req.body, (err, result) => {
-				if (!err) {
-					res.json(result);
-				} else res.sendStatus(501);
-			})
+	.get((req, res) => {
+		app.locals.response = res;
+		dao.findAll(onError,(result) => {
+			res.json(result);
 		});
+	})
+	.post((req, res) => {
+		app.locals.response = res;
+		dao.insert(onError, req.body, (result) => {
+			res.json(result);
+		})
+	})
+	.put((req, res) => {
+		app.locals.response = res;
+		dao.update(onError, req.body, (result) => {
+			res.json(result);
+		})
+	});
 }

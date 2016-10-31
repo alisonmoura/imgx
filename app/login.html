@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" width="device-width=1; user-scalable=no">
 	<base href="/">
-	<title>IMGX - Store your images here!</title>
+	<title>IMGX - Store your moments with us!</title>
 	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="./bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="./bower_components/angular-route/angular-route.min.js"></script>
@@ -65,7 +65,7 @@
 						<div class="card-footer" align="center">
 							<button ng-show="!isToRegister" class="btn btn-login btn-primary" ng-click="login(email, password)">Login</button>
 							<button ng-show="!isToRegister" class="btn btn-register btn-success" ng-click="isToRegister=true">Register</button>
-							<button ng-show="isToRegister" class="btn btn-register btn-success" ng-click="">Register</button>
+							<button ng-show="isToRegister" class="btn btn-register btn-success" ng-click="register(name,email,password)">Register</button>
 							<button ng-show="isToRegister" class="btn btn-register-cancel btn-danger" ng-click="isToRegister=false">Cancel</button>
 						</div>
 					</div>
