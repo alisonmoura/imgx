@@ -199,8 +199,26 @@
 }
 
 .new-gallery-dialog{
+    padding-top: 60px;
     position: absolute;
     top: 0px;
     width: 100%;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0,0,0,.4);
+    height: 100%;
+    display: none;
+    border: none;
+}
+
+.modal-card{
+
+}
+
+.modal-card > .modal-card-header{
+  min-height: 0px !important;
+  height: 50px;
+  text-align: center;
+}
+
+.modal-card > .modal-card-header > h1,h2,h3,h4{
+  line-height: 50px;
 }

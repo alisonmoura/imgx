@@ -22,6 +22,14 @@ angular.module('ImgxApp.controllers',[])
 		}
 	}
 
+	$scope.addGallery = function(){
+		angular.element("#new-gallery-dialog")[0].style.display="block";
+	}
+
+	$scope.closeGalleryModal = function(){
+		angular.element("#new-gallery-dialog")[0].style.display="none";
+	}
+
 })
 .controller('LoginController', function($scope, $rootScope, LoginService, UserService){
 	$scope.isToRegister = false;

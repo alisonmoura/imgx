@@ -14,12 +14,34 @@
 	</div>
 </div>
 <div class="col-md-4">
-	<div class="card" style="cursor: pointer;">
+	<div class="card" style="cursor: pointer;" ng-click="addGallery()">
 		<div class="card-content">
 			<a><i class="material-icons">add_to_photos</i> New Gallery</a>
 		</div>
 	</div>
 </div>
-<dialog open class="new-gallery-dialog">
+<dialog class="new-gallery-dialog" id="new-gallery-dialog">
 
+	<div class="col-md-4" style="width: 100%;">
+		<div class="card modal-card" style="cursor: pointer; width: 100%;" ng-click="addGallery()">
+			<div class="card-header modal-card-header card-chart" data-background-color="purple">
+				<h4>Add new Gallery</h4>
+			</div>
+			<div class="card-content">
+				<form>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+							<div class="form-group label-floating">
+								<label class="control-label">Gallery Name</label>
+								<input type="text" class="form-control">
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary pull-right">Save Gallery</button>
+					<div class="clearfix"></div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<a ng-click="closeGalleryModal()" class="btn btn-danger pull-right" style="cursor: pointer;"><i class="material-icons">close</i> Close</a>
 </dialog>
